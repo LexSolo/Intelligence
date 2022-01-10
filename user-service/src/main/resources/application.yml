@@ -1,7 +1,6 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/Intelligence
-#    schema-name: user-service
     username: postgres
     password: postgres
   jpa:
@@ -10,7 +9,3 @@ spring:
     hibernate:
       ddl-auto: update
       show-sql: true
-#  liquibase:
-#    change-log: classpath:db/changelog/db.changelog-master.xml
-#    default-schema: ${sberdex.db.schema-name}
-#    liquibase-schema: ${sberdex.db.schema-name}
