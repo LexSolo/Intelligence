@@ -1,3 +1,3 @@
-package com.intelligence.user.api;
+package com.intelligence.user.openapi.api;
 
 public interface FeignBasePackageClass {}

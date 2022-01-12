@@ -4,6 +4,7 @@ HELP.md
 /user-service.iml
 .mvn
 target/
+.openapi-generator/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
