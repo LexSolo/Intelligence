@@ -15,12 +15,12 @@ paths:
     get:
       tags:
         - user
-      summary: search users
-      operationId: searchUsers
-      description: List users
+      summary: find all users
+      operationId: findAllUsers
+      description: find all users
       responses:
         '200':
-          description: search results matching criteria
+          description: users found
           content:
             application/json:
               schema:
@@ -39,6 +39,93 @@ paths:
           description: conflict
         '500':
           description: internal error
+    post:
+      tags:
+        - user
+      summary: add user
+      operationId: addUser
+      description: add user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDto'
+      responses:
+        '201':
+          description: created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDto'
+        '400':
+          description: bad input parameters
+        '401':
+          description: unauthorized
+        '403':
+          description: forbidden
+        '409':
+          description: conflict
+        '500':
+          description: internal error
+
+  /{id}:
+    get:
+      tags:
+        - user
+      summary: find user by id
+      operationId: findUserById
+      description: find user by id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: user found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDto'
+        '400':
+          description: bad input parameters
+        '401':
+          description: unauthorized
+        '403':
+          description: forbidden
+        '404':
+          description: not found
+        '500':
+          description: internal error
+    delete:
+      tags:
+        - user
+      summary: delete user by id
+      operationId: deleteUserById
+      description: delete user by id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: user deleted
+        '400':
+          description: bad input parameters
+        '401':
+          description: unauthorized
+        '403':
+          description: forbidden
+        '404':
+          description: not found
+        '500':
+          description: internal error
 
 components:
   schemas:
@@ -51,11 +138,6 @@ components:
           format: uuid
           readOnly: true
           description: User id
-        createdAt:
-          type: string
-          format: date-time
-          readOnly: true
-          description: Creation date
         name:
           type: string
           maxLength: 255
@@ -67,3 +149,9 @@ components:
         email:
           type: string
           description: User email
+        password:
+          type: string
+          description: User password
+        passwordConfirmation:
+          type: string
+          description: User's password configmation
