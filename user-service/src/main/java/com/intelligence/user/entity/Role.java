@@ -1,29 +1,30 @@
 package com.intelligence.user.entity;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Stream;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "users")
+@Table(name = "role")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class User {
+public class Role {
 
   @Id
   @GeneratedValue(generator = "UUID")
@@ -34,18 +35,23 @@ public class User {
   @Column(name = "name")
   private String name;
 
-  @Column(name = "surname")
-  private String surname;
+  @Transient
+  @ManyToMany(mappedBy = "roles")
+  private Set<User> users;
 
-  @Email(message = "Email should conform pattern")
-  @Column(name = "email")
-  private String email;
+  @Getter
+  @RequiredArgsConstructor
+  public enum RoleEnum {
+    ROLE_USER("ROLE_USER");
 
-  @Column(name = "password")
-  private String password;
+    private final String value;
 
-  @Transient private String passwordConfirmation;
-
-  @ManyToMany(fetch = FetchType.EAGER)
-  private Set<Role> roles;
+    @JsonCreator
+    public static RoleEnum fromValue(String value) {
+      return Stream.of(RoleEnum.values())
+          .filter(role -> role.value.equalsIgnoreCase(value))
+          .findFirst()
+          .orElseThrow(() -> new IllegalArgumentException("Unexpected value '" + value + "'"));
+    }
+  }
 }
