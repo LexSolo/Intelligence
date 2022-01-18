@@ -1,7 +1,7 @@
 package com.intelligence.user.controller;
 
+import com.intelligence.user.api.UserApi;
 import com.intelligence.user.mapper.UserMapper;
-import com.intelligence.user.openapi.api.UserApi;
 import com.intelligence.user.service.UserService;
 import java.util.List;
 import java.util.UUID;

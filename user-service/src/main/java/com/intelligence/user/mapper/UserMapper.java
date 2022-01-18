@@ -7,7 +7,6 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.openapitools.model.UserDto;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
@@ -24,6 +23,7 @@ public interface UserMapper {
 
   @AfterMapping
   default void encryptPassword(UserDto dto, @MappingTarget User user) {
-    user.setPassword(new BCryptPasswordEncoder().encode(dto.getPassword()));
+    // todo: implement password encrypting
+    user.setPassword(dto.getPassword());
   }
 }

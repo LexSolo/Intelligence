@@ -1,6 +1,6 @@
-package com.intelligence.user.openapi.config;
+package com.intelligence.user.config;
 
-import com.intelligence.user.openapi.api.FeignBasePackageClass;
+import com.intelligence.user.api.FeignBasePackageClass;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
