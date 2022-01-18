@@ -1,4 +1,4 @@
-package com.intelligence.user.openapi.config;
+package com.intelligence.user.config;
 
 import org.springframework.context.annotation.Configuration;
 

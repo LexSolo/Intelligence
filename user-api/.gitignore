@@ -1,0 +1,16 @@
+HELP.md
+/mvnw
+/mvnw.cmd
+/user-service.iml
+.mvn
+target/
+.openapi-generator/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+.DS_Store
+.idea
+*.iws
+*.iml
+*.ipr
