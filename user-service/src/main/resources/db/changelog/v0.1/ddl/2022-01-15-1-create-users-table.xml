@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="LexSolo" id="2022-01-15-1-create-users-table.xml">
+    <createTable tableName="users">
+      <column name="id" type="UUID">
+        <constraints nullable="false" primaryKey="true"/>
+      </column>
+      <column name="name" type="varchar(63)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="surname" type="varchar(63)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="email" type="varchar(63)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="password" type="varchar(127)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+</databaseChangeLog>
