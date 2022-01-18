@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+  <changeSet author="LexSolo" id="2022-01-18-1-fill-roles-table.xml">
+    <sql>
+      INSERT INTO intelligence_user_service.roles
+        VALUES ('30ab77d6-2b63-4111-97f1-aa9cceaacf6a', 'ROLE_ADMIN');
+
+      INSERT INTO intelligence_user_service.roles
+        VALUES ('8d4cf1fc-18be-4889-8879-70f2a1250705', 'ROLE_MODERATOR');
+
+      INSERT INTO intelligence_user_service.roles
+        VALUES ('a6af6f32-d56a-4c93-b6c2-bf5986c4889d', 'ROLE_USER');
+
+      INSERT INTO intelligence_user_service.roles
+        VALUES ('39da5235-a078-4ebb-aca3-a05150b70fea', 'ROLE_ANONYMOUS');
+    </sql>
+  </changeSet>
+</databaseChangeLog>

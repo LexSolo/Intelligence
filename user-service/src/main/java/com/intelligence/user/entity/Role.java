@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +18,7 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "role")
+@Table(name = "roles")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -35,14 +34,16 @@ public class Role {
   @Column(name = "name")
   private String name;
 
-  @Transient
   @ManyToMany(mappedBy = "roles")
   private Set<User> users;
 
   @Getter
   @RequiredArgsConstructor
   public enum RoleEnum {
-    ROLE_USER("ROLE_USER");
+    ROLE_ADMIN("ROLE_ADMIN"),
+    ROLE_MODERATOR("ROLE_MODERATOR"),
+    ROLE_USER("ROLE_USER"),
+    ROLE_ANONYMOUS("ROLE_ANONYMOUS");
 
     private final String value;
 
