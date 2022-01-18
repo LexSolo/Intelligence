@@ -1,3 +1,10 @@
+intelligence:
+  db:
+    schema-name: intelligence_user_service
+    url: jdbc:postgresql://localhost:5432/Intelligence
+    username: postgres
+    password: postgres
+
 spring:
   datasource:
     schema-name: ${intelligence.db.schema-name}
@@ -19,3 +26,7 @@ spring:
     liquibase-schema: ${intelligence.db.schema-name}
   messages:
     encoding: UTF-8
+
+logger:
+  level:
+    org.hibernate.SQL: DEBUG
