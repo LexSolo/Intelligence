@@ -19,6 +19,7 @@
 	<properties>
 		<java.version>11</java.version>
 
+		<user-api.version>0.0.1</user-api.version>
 		<mapstruct.version>1.4.2.Final</mapstruct.version>
 		<lombok-mapstruct-binding.version>0.1.0</lombok-mapstruct-binding.version>
 		<liquibase-core.version>4.5.0</liquibase-core.version>
@@ -34,6 +35,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.intelligence</groupId>
+			<artifactId>user-api</artifactId>
+			<version>${user-api.version}</version>
 		</dependency>
 
 		<!-- Mapstruct -->
@@ -69,12 +76,6 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>com.intelligence</groupId>
-			<artifactId>user-api</artifactId>
-			<version>0.0.1</version>
 		</dependency>
 
 		<!-- Tests -->
