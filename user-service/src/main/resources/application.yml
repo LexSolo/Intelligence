@@ -1,11 +1,21 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/Intelligence
-    username: postgres
-    password: postgres
+    schema-name: ${intelligence.db.schema-name}
+    url: ${intelligence.db.url}
+    username: ${intelligence.db.username}
+    password: ${intelligence.db.password}
+    initialization-mode: always
   jpa:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQL10Dialect
     hibernate:
-      ddl-auto: update
       show-sql: true
+    properties:
+      hibernate:
+        default_schema: ${sberdex.db.schema-name}
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+    default-schema: ${intelligence.db.schema-name}
+    liquibase-schema: ${intelligence.db.schema-name}
+  messages:
+    encoding: UTF-8
