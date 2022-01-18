@@ -6,4 +6,8 @@
   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
   <include file="ddl/2022-01-15-1-create-users-table.xml" relativeToChangelogFile="true"/>
+  <include file="ddl/2022-01-18-1-create-roles-table.xml" relativeToChangelogFile="true"/>
+  <include file="ddl/2022-01-18-2-create-users-and-roles-relation.xml" relativeToChangelogFile="true"/>
+
+  <include file="dml/2022-01-18-1-fill-roles-table.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
